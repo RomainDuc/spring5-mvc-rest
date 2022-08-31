@@ -4,11 +4,14 @@ import guru.springfamework.api.v1.model.CustomerDTO;
 import guru.springfamework.api.v1.model.CustomerListDTO;
 import guru.springfamework.domain.v1.Customer;
 import guru.springfamework.services.CustomerService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+@Api(description = "Gere le Customer")
 @Controller
 @RequestMapping(CustomerController.BASE_URL_CUSTOMERS)
 public class CustomerController {
@@ -21,6 +24,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    @ApiOperation(value = "Returns a List of cutomers", notes = "The list is contained by a container-Object")
     @GetMapping
     public ResponseEntity<CustomerListDTO> getAllCustomers() {
         return new ResponseEntity<>(new CustomerListDTO(customerService.getAllCustomers()), HttpStatus.OK);

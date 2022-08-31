@@ -3,11 +3,13 @@ package guru.springfamework.controllers.v1;
 import guru.springfamework.api.v1.model.VendorDTO;
 import guru.springfamework.api.v1.model.VendorListDTO;
 import guru.springfamework.services.VendorService;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import static guru.springfamework.controllers.v1.VendorController.BASE_URL_VENDOR;
 
+@Api(description = "Vendor Controller")
 @RestController
 @RequestMapping(BASE_URL_VENDOR)
 public class VendorController {
